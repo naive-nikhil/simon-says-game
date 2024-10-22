@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+  /* outline: 1px solid black; */
+}
+
+body{
+  background-color: aliceblue;
+  height: 100%;
+}
+
+.game-ctr-parent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #99582a;
+}
+
+.game-ctr{
+  text-align: center;
+  width: fit-content;
+  background-color: #FEFAE0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+h1{
+  /* background-color: #FAEDCD; */
+  padding: 10px 10px;
+}
+
+.score-card{
+  padding: 10px 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #FAEDCD;
+  font-weight: 600;
+}
+
+.bottom-card{
+  padding: 10px 1rem;
+  font-weight: 600;
+  background-color: #FAEDCD;
+  --flash-info-start-color: #FAEDCD;
+  transition: all 0.3s ease;
+}
+
+.right{
+  --flash-info-status-color: green;
+}
+
+.wrong{
+  --flash-info-status-color: red;
+}
+
+.blue {
+  background-color: #003049;
+  --flash-start-color: #003049;
+  --flash-transparent-color: #003049CC;
+}
+
+.red {
+  background-color: #D62828;
+  --flash-start-color: #D62828;
+  --flash-transparent-color: #D62828CC;
+}
+
+.orange {
+  background-color: #F77F00;
+  --flash-start-color: #F77F00;
+  --flash-transparent-color: #F77F00CC;
+}
+
+.yellow {
+  background-color: #FCBF49;
+  --flash-start-color: #FCBF49;
+  --flash-transparent-color: #FCBF49CC;
+}
+
+.btn-ctr{
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes flash {
+  0% {
+    transform: scale(1);
+    background-color: var(--flash-start-color);
+  }
+  50% {
+    transform: scale(1.05);
+    background-color: var(--flash-transparent-color);
+  }
+  100% {
+    transform: scale(1);
+    background-color: var(--flash-start-color);
+  }
+}
+
+.btn{
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  margin: 1rem 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.btn.flash {
+  animation: flash 0.4s ease-in-out;
+}
+
+@keyframes flash-info {
+  0% {
+    background-color: var(--flash-info-start-color);
+  }
+  50% {
+    background-color: var(--flash-info-status-color);
+  }
+  100% {
+    background-color: var(--flash-info-start-color);
+  }
+}
+
+.bottom-card.flash {
+  animation: flash-info 0.3s ease-in-out;
+}
